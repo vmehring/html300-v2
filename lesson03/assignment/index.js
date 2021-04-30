@@ -1,4 +1,6 @@
-[
+//Array of objects from JSON data
+
+const people = [
   {
     "name": "Paolo Maldini",
     "jobTitle": "Front End Developer",
@@ -52,3 +54,35 @@
     ]
   }
  ]
+
+//Array.map to create HTML that builds the cardFolks
+
+ let cardFolks = people.map(function(e) {
+
+   return `
+    <div class="biz-card">
+
+      <div class="panel1">
+        <img src="./img/headshot.jpg" alt="Portrait of ${e.name}">
+        <h1>${e.name}</h1>
+        <h2>${e.jobTitle}</h2>
+      </div>
+
+      <div class="panel2">
+        <p><span>Company: </span>${e.company}</p>
+        <p><span>Experience: </span>${e.experience}</p>
+        <p><span>School: </span>${e.school}</p>
+        <p><span>Major: </span>${e.major}</p>
+        <p><span>Coding Languages: </span></p>
+          <ul>${e.codeLanguages.map(function(l) {
+            return '<li>' + l + '</li>';
+            }).join('')}</ul>
+        <p><span>Email: </span>${e.email}</p>
+        <p class="linkedin"><img src="./img/linkedin.svg">${e.linkedInUrl}</p>
+      </div>
+
+    </div>`;
+
+ }).join('');
+
+  document.querySelector(".template-hook").innerHTML = cardFolks;

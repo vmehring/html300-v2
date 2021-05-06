@@ -6,6 +6,12 @@ $silver: #928a9c;
 $lavender: #c7bed9;
 $ltblue: #dcf2ff;
 
+// Mixin for making box shadows
+
+@mixin shadow {
+  box-shadow: .3rem .3rem .2rem #2a2f1d;
+}
+
 body {
   background-color: $dkolive;
   color: white;
@@ -17,6 +23,17 @@ body {
   padding: 3rem;
 }
 
+p {
+  display: block;
+  padding: .2rem;
+}
+
+a {
+  display: block;
+  padding: .2rem;
+  background-color: $ltblue;
+}
+
 // Menu container
 
 .menu {
@@ -25,7 +42,7 @@ body {
   border: 0;
   padding: .5rem;
   width: 12rem;
-  height: auto;
+  height: 28rem;
 
   // Menu items
 
@@ -42,6 +59,7 @@ body {
     z-index: 6;
     position: relative;
     will-change: transform;
+    @include shadow;
   }
 
   &__opt1 {
@@ -78,43 +96,45 @@ body {
   // Transition effects on hover
 
   &:hover > div {
-    transition: transform 1s ease;
+    transition: transform 1s ease-in;
 
     &.menu__opt1 {
-      transform: translateY(3.9rem);
+      transform: translateY(4.5rem);
       &:hover {
         transition: all .5s ease;
-        transform: scale(1.2, 1.2) translateY(3.3rem);
+        transform: scale(1.2, 1.2) translateY(3.7rem);
         background-color: $lavender;
         color: $dkolive;
+        z-index: 7;
+        cursor: pointer;
       }
     }
     &.menu__opt2 {
-      transform: translateY(7.8rem);
+      transform: translateY(8.8rem);
       &:hover {
         @extend .menu__opt1:hover;
-        transform: scale(1.2, 1.2) translateY(6.5rem);
+        transform: scale(1.2, 1.2) translateY(7.4rem);
       }
     }
     &.menu__opt3 {
-      transform: translateY(11.7rem);
+      transform: translateY(13.3rem);
       &:hover {
         @extend .menu__opt1:hover;
-        transform: scale(1.2, 1.2) translateY(9.7rem);
+        transform: scale(1.2, 1.2) translateY(11.1rem);
       }
     }
     &.menu__opt4 {
-      transform: translateY(15.6rem);
+      transform: translateY(17.8rem);
       &:hover {
         @extend .menu__opt1:hover;
-        transform: scale(1.2, 1.2) translateY(13rem);
+        transform: scale(1.2, 1.2) translateY(14.9rem);
       }
     }
     &.menu__opt5 {
-      transform: translateY(19.5rem);
+      transform: translateY(22.3rem);
       &:hover {
         @extend .menu__opt1:hover;
-        transform: scale(1.2, 1.2) translateY(16.3rem);
+        transform: scale(1.2, 1.2) translateY(18.7rem);
       }
     }
   }

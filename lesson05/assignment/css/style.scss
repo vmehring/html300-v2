@@ -4,3 +4,161 @@
 @import 'settings.responsive';
 @import 'components.content';
 
+// Colors & fonts
+
+$almostblack: #2a1f2d;
+$dkbrown: #3b2c35;
+$sage: #5b6c5d;
+$mauve: #b098a4;
+$pinkgray: #dbd9db;
+
+$font-text-fancy: 'Architects Daughter', cursive;
+$font-text-plain: Arial, sans-serif;
+$font-header: sunshine, sans-serif;
+
+@mixin no-m-b-p {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+@mixin no-m-b {
+  margin: 0;
+  border: 0;
+}
+
+// Grid setup
+
+body {
+  box-sizing: border-box;
+  @include no-m-b-p;
+    display: grid;
+    grid-gap: 0;
+    grid-template-areas: 'title'
+                        'links'
+                        'content'
+                        'ps';
+}
+
+// Grid items
+
+header {
+  grid-area: title;
+  @include no-m-b;
+  width: 100%;
+  padding: 2rem;
+  background-color: $dkbrown;
+  color: white;
+  text-align: center;
+}
+
+nav  {
+  grid-area: links;
+  @include no-m-b;
+  width: 100%;
+  padding: 1rem;
+  background-color: $sage;
+  color: white;
+  @include media-query(ipad) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+  @include media-query(desk) {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+  @include media-query(mobile) {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+
+}
+
+main {
+  grid-area: content;
+  @include no-m-b-p;
+  width: 100%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 2fr 5fr;
+  @include media-query(mobile) {
+    display: block;
+  }
+}
+
+// Nested grid
+
+.side-section {
+  @include no-m-b;
+  padding: 1.5rem 1.5rem 2rem 3rem;
+  background-color: $pinkgray;
+  color: black;
+  @include media-query(mobile) {
+    display: none;
+  }
+}
+
+.main-section {
+  padding: 1.5rem 3rem 2rem 1.5rem;
+  background-color: $mauve;
+  color: black;
+}
+
+footer {
+  grid-area: ps;
+  @include no-m-b;
+  width: 100%;
+  padding: 1rem;
+  background-color: $almostblack;
+  color: white;
+  text-align: center;
+  a:active {
+    text-shadow: 0 0 .5rem $pinkgray;
+  }
+}
+
+// Content styling
+
+h1 {
+  font-size: 3rem;
+  font-family: $font-header;
+}
+
+a {
+  display: inline-block;
+  font-family: $font-text-fancy;
+  font-size: 1.25rem;
+  text-decoration: none;
+  color: white;
+  padding: 1rem;
+  &:hover {
+    z-index: 1;
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding: .8rem;
+  }
+  &:active {
+    text-shadow: 0 0 .5rem black;
+  }
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-family: $font-header;
+}
+
+p {
+  font-family: $font-text-plain;
+  line-height: 1.3rem;
+}
+
+span {
+  font-family: $font-text-fancy;
+  font-size: 1.1rem;
+}

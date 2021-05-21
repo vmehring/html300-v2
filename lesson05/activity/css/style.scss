@@ -4,3 +4,50 @@
 @import 'settings.responsive';
 @import 'components.content';
 
+body {
+  background-color: $white;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  background-color: $teal;
+  color: $white;
+  a, a:visited {
+    color: $white;
+  }
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8rem 0;
+  padding: 1rem;
+  border: 0;
+}
+
+.bookend {
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0;
+  border: 0;
+  padding: 1rem 4rem;
+}
+
+ul {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 0;
+  border: 0;
+  padding: 1.25rem;
+  justify-content: space-around;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  border: 0;
+  padding:1rem 3rem;
+}

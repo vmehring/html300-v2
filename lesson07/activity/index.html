@@ -1,13 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-        <title>Activity 07 - Vue</title>
-        <link rel="stylesheet" href="/css/style.css">
-    </head>
-    <body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Activity 07 - Vue</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://unpkg.com/vue@next"></script>
+  </head>
+  <body>
 
-    </body>
+    <div id="app">
+
+      <p v-bind:title="greeting">
+        <span v-if="name === 'Valerie'">
+          {{ generateGreeting() }}, {{ name }}
+        </span>
+        <span v-else>
+          What the hey-hey
+        </span>
+      </p>
+
+      <ul>
+        <li v-for="num in favNumbers">
+          {{ num }}
+        </li>
+      </ul>
+
+      <img v-bind:src="imageSource" v-bind:alt="alt" v-if="imageShowing === true"> <br>
+
+      <button v-else type="button">So sorry</button>
+
+
+      Counter:{{ counter }}
+
+      <button type="button" v-on:click="plusOne">Add one!</button>
+      <button type="button" v-on:click="addMore(3)">Add three!</button>
+
+    </div>
+
+    <script type="text/javascript">
+
+      const CounterApp = {
+        name: "counter app",
+        data() {
+          return {
+            counter: 0,
+            name: "Valerie",
+            greeting: this.generateGreeting(),
+            favNumbers: [12, 24, 36, 48],
+            imageSource: "https://picsum.photos/200/300",
+            alt: "A random photo",
+            imageShowing: "false",
+            width: 200 + Math.floor(Math.random) * 300
+          }
+        },
+
+        methods: {
+          plusOne() {
+            this.counter += 1
+          },
+          addMore(amt) {
+            this.counter += parseInt(amt)
+          },
+        generateGreeting() {
+          return "What up, n00b?"
+          }
+        }
+      }
+
+      Vue.createApp(CounterApp).mount('#app')
+    </script>
+
+  </body>
 </html>

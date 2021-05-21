@@ -4,10 +4,12 @@
 @import 'settings.responsive';
 @import 'components.content';
 
+
 // Colors and fonts
+
 $darkgray: #4d4d4d;
 $medgray: #bfbfbf;
-$lightgray: #e6e6e6;
+$lightgray: #f6f5f6;
 $lin-logo: #006699;
 
 $fonts: Arial, Helvetica, sans-serif;
@@ -77,7 +79,9 @@ span {
   justify-content: center;
   align-items: flex-start;
   padding: $text-size;
+
   background-color: $lightgray;
+
 }
 
 .linkedin {

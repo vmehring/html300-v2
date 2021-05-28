@@ -1,0 +1,80 @@
+// Colors and basic styling
+$oliveshadow: #222518;
+$dkolive: #323624;
+$nickel: #53584b;
+$silver: #777578;
+$dklavender:#90869b;
+$ltlavender: #c2bdcd;
+$ltblue: #dff2fd;
+
+// Mixin for making box shadows
+
+@mixin shadow {
+  box-shadow: .3rem .3rem .2rem $oliveshadow;
+}
+
+body {
+  background-color: $dkolive;
+  color: white;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  padding: 3rem;
+}
+
+p {
+  display: block;
+  padding: .2rem;
+}
+
+a {
+  display: block;
+  padding: .2rem;
+  background-color: $ltblue;
+}
+
+// Menu container
+
+.menu {
+  display: block;
+  margin: 0;
+  border: 0;
+  padding: .5rem;
+  width: 30%;
+  height: 28rem;
+
+  // Menu items
+
+  &__cover {
+    margin: .5rem;
+    border: .5rem ridge $nickel;
+    border-radius: .25rem;
+    padding: .5rem;
+    text-align: center;
+    background-color: $silver;
+    color: $ltblue;
+    font-size: 1.5rem;
+    font-weight: bold;
+    //@include shadow;
+  }
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+    transition: all .3s ease-in-out;
+    z-index: -1;
+    li {
+      @extend .menu__cover;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+  // Transition effects on hover
+
+.dropdown-enter-active, .dropdown-leave-active {
+  transform-origin: top;
+  transform: scaleY(0);
+}
